@@ -23,6 +23,8 @@ class FilterableTable extends React.Component {
 			pageSize: +localStorage.getItem(this.props.namespace + '.PageSize') || this.props.pageSize || 10,
 			shiftDown: false
 		}
+		
+		this.tableRef = React.createRef();
 
 		this.loadData = this.loadData.bind(this);
 		this.setData = this.setData.bind(this);
@@ -328,7 +330,7 @@ class FilterableTable extends React.Component {
 				className={this.props.tableClassName}
 				trClassName={this.props.trClassName}
 				style={this.props.style}
-				ref="Table"
+				ref={this.tableRef}
 			/>
 
 
